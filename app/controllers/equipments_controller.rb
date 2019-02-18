@@ -1,1 +1,0 @@
-equipments_controller.rb

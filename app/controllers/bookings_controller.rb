@@ -1,1 +1,2 @@
-bookings_controller.rb
+class BookingsController < ApplicationController
+end

@@ -1,1 +1,4 @@
-equipments_controller.rb
+class EquipmentsController < ApplicationController
+  def index
+  end
+end

@@ -1,0 +1,19 @@
+<div class="card-product">
+  <%= cl_image_tag @equipment.photo, crop: :fill %>
+  <div class="card-product-infos">
+    <h2><%= @equipment.title %></h2>
+    <p><%= @equipment.description %></p>
+    <p><%= @equipment.size %></p>
+    <p><%= @equipment.shape %></p>
+    <p><%= @equipment.daily_price %></p>
+    <p><%= @equipment.location %></p>
+  </div>
+</div>
+<%= link_to "back", equipments_path%>
+
+
+<% if policy(Equipment).create? %>
+  <%= link_to "New equipment", new_equipment_path %>
+<% end %>
+
+

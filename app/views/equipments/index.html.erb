@@ -2,27 +2,32 @@
   <div class="container">
     <h1><strong>Welcome to DecathLoc'</strong></h1>
     <p>The platform to rent Roller, for your trainings or competition</p>
+
     <div class="search-bar">
-      <input type="search" id="site-search" name="q" placeholder="Size">
-      <input type="search" id="site-search" name="q" placeholder="Location">
-      <input type="search" id="site-search" name="q" placeholder="From">
+      <input type="search" class="site-search" name="q" placeholder="Size">
+      <input type="search" class="site-search" name="q" placeholder="Location">
+      <input type="search" class="site-search" name="q" placeholder="Dates">
     </div>
-    <a class="btn btn-gradient" href="#">Loc'</a>
+    <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>
   </div>
+
 </div>
 
-<div class="cards-container">
- <div class="row">
-   <% @equipments.each do |equipment| %>
-     <div class="col-xs-12 col-sm-6 col-md-4">
-         <h2><%= equipment.title %></h2>
-         <%#= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
-         <p><%= equipment.description %></p>
-         <p><%= equipment.shape %></p>
-         <p><%= equipment.size %></p>
-         <p><%= equipment.location %></p>
-         <p><%= equipment.daily_price %></p>
-     </div>
-   <% end %>
- </div>
+<div class="container">
+  <div id="equipments-list" class="cards-container">
+   <div class="row">
+     <% @equipments.each do |equipment| %>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+           <h2><%= equipment.title %></h2>
+           <%#= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
+           <p><%= equipment.description %></p>
+           <p><%= equipment.shape %></p>
+           <p><%= equipment.size %></p>
+           <p><%= equipment.location %></p>
+           <p><%= equipment.daily_price %></p>
+       </div>
+     <% end %>
+   </div>
+  </div>
+
 </div>

@@ -15,5 +15,4 @@ class EquipmentsController < ApplicationController
   def create
     authorize @equipment
   end
-
 end

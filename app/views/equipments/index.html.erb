@@ -3,7 +3,7 @@
    <% @equipments.each do |equipment| %>
      <div class="col-xs-12 col-sm-6 col-md-4">
          <h2><%= equipment.title %></h2>
-         <%= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
+         <%#= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
          <p><%= equipment.description %></p>
          <p><%= equipment.shape %></p>
          <p><%= equipment.size %></p>

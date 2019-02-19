@@ -4,26 +4,31 @@
 
       <h2>Add quad rollers for rent</h2>
 
-      <%= simple_form_for(@equipment) do |f| %>
+      <%= simple_form_for @equipment, url: equipments_path do |f| %>
         <div class="form-inputs">
           <%= f.input :title,
-                      label: "Roller Quad Impala Aqua",
                       autofocus: true %>
           <%= f.input :description,
-                      label: "Les roller quad Impala se serre a l´aide de lacets deLacets 200cm de long. Les lacets permettent d´ajuster au mieux le serrage de votre patin.Le pied et la cheville sont très biens maintenus. ",
                       autofocus: true %>
           <%= f.input :size,
-                      collection: @equipment.SIZES
+                      collection: Equipment::SIZES,
                       input_html: { class: 'select2' } %>
-          <%= f.input :SHAPE,
-                      collection: SHAPES
+          <%= f.input :shape,
+                      collection: Equipment::SHAPES,
                       input_html: { class: 'select2' } %>
+          <%= f.input :location,
+                      autofocus: true %>
+          <%= f.input :daily_price,
+                      autofocus: true %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
         </div>
 
         <div class="form-actions">
           <%= f.button :submit, "Let's roll!" %>
         </div>
       <% end %>
+      <br>
 
     </div>
   </div>

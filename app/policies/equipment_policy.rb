@@ -1,13 +1,9 @@
 class EquipmentPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
-  end
-
   def index?
     true
   end
+
+  def new?
 
   def create?
     return true
@@ -19,5 +15,11 @@ class EquipmentPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
+
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 end

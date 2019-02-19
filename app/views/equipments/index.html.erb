@@ -1,9 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'roller-banner.png' %>');">
+  <div class="container">
+    <h1><strong>Welcome to DecathLoc'</strong></h1>
+    <p>The platform to rent Roller, for your trainings or competition</p>
+    <div class="search-bar">
+      <input type="search" id="site-search" name="q" placeholder="Size">
+      <input type="search" id="site-search" name="q" placeholder="Location">
+      <input type="search" id="site-search" name="q" placeholder="From">
+    </div>
+    <a class="btn btn-gradient" href="#">Loc'</a>
+  </div>
+</div>
+
 <div class="cards-container">
  <div class="row">
    <% @equipments.each do |equipment| %>
      <div class="col-xs-12 col-sm-6 col-md-4">
          <h2><%= equipment.title %></h2>
-         <%= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
+         <%#= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
          <p><%= equipment.description %></p>
          <p><%= equipment.shape %></p>
          <p><%= equipment.size %></p>

@@ -12,6 +12,8 @@
 <%= link_to "back", equipments_path%>
 
 
-
+<% if policy(Equipment).create? %>
+  <%= link_to "New equipment", new_equipment_path %>
+<% end %>
 
 

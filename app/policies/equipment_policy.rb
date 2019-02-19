@@ -4,6 +4,7 @@ class EquipmentPolicy < ApplicationPolicy
   end
 
   def new?
+  end
 
   def create?
     return true

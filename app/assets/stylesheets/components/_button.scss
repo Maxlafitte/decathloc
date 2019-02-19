@@ -4,12 +4,15 @@
   border-radius: 4px;
   font-weight: bold;
   background: linear-gradient($pink, #f9e8f0);
+  opacity: 0.9;
   transition: background 0.3s ease;
   border: 1px ;
   margin-top: 40px;
   width: 150px;
 }
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient($pink, #f9e8f0);
+  opacity: 1;
+  transition: background 0.3s ease;
   color: white;
 }

@@ -1,0 +1,10 @@
+<div class="form-inputs">
+  <%= simple_form_for [ equipment, booking ] do |f| %>
+    <!-- <#%= f.input :content, label: false, as: :text, autofocus:true :input_html => {:style => 'width: 100%', :rows => 5  class: 'response-project'}%> -->
+    <%= f.input :start_date, as: :date, autofocus: true %>
+    <%= f.input :end_date, as: :date, autofocus:true  %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+

@@ -1,10 +1,10 @@
-class EquipmentPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   def index?
-    true
+    record.user == user
   end
 
   def show?
-    true
+    record.user == user
   end
 
   def new?

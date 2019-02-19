@@ -8,6 +8,7 @@ class EquipmentsController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+    @booking = Booking.new
     authorize @equipment
   end
 
@@ -32,4 +33,5 @@ class EquipmentsController < ApplicationController
   def equipment_params
     params.require(:equipment).permit(:title, :description, :size, :shape, :daily_price, :photo, :location)
   end
+
 end

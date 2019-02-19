@@ -10,6 +10,7 @@
   </div>
 </div>
 <%= link_to "back", equipments_path%>
+<%= render 'form', booking: @booking%>
 
 
 <% if policy(Equipment).create? %>

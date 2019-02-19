@@ -1,9 +1,15 @@
 class EquipmentsController < ApplicationController
+
+  def create
+    authorize @equipment
+  end
+
   def index
-    @equipments = Equipment.all
+    @equipments = policy_scope(Equipment)
   end
 
   def show
     @equipment = Equipment.find(params[:id])
+    # authorize @equipment
   end
 end

@@ -8,7 +8,7 @@ class EquipmentsController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
-    # authorize @equipment
+    authorize @equipment
   end
 
   def new

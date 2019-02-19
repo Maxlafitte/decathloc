@@ -1,4 +1,12 @@
 class EquipmentPolicy < ApplicationPolicy
+  def index?
+    true
+  end
+
+  def new?
+    true
+  end
+
   def create?
     return true
   end

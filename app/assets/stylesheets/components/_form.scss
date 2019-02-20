@@ -23,3 +23,8 @@
   width : 200px;
   padding: 16px 24px;
 }
+@media screen and (max-width: 1232px) {
+    .select2 {
+        width: 100% !important;
+    }
+}

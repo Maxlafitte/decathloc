@@ -12,7 +12,11 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <%= render 'shared/current-user-navbar' %>
+      <% if current_user.equipment_ids.empty? %>
+        <%= render 'shared/current-user-navbar' %>
+      <% else %>
+        <%= render 'shared/user-with-equipments-navbar' %>
+      <% end %>
     <% else %>
       <%= render 'shared/navbar' %>
     <% end %>

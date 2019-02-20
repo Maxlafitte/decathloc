@@ -17,7 +17,9 @@
     </div>
       <div class="col-xs-12 col-md-5 ">
         <div class="form-card">
-        <%= render 'form', booking: @booking, equipment: @equipment %>
+          <% if current_user != @equipment.user %>
+            <%= render 'form', booking: @booking, equipment: @equipment %>
+          <% end %>
         </div>
       </div>
     </div>

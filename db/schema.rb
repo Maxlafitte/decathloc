@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_133955) do
     t.bigint "equipment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmation", default: false, null: false
     t.index ["equipment_id"], name: "index_bookings_on_equipment_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

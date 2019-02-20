@@ -1,6 +1,6 @@
 class EquipmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_equipments, only: [:index, :new, :create]
+  before_action :set_equipments, only: [:index, :new, :create, :show]
 
   def index
   end

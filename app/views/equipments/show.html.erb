@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container body extension">
   <div class="row">
     <div class="col-xs-12 col-md-7">
       <div class="big-card d-inline-flex">
@@ -7,25 +7,26 @@
         </div>
         <div class="equipment-desc">
           <h2><%= @equipment.title %></h2>
-          <p><%= @equipment.description %></p>
-          <p><%= @equipment.size %></p>
-          <p><%= @equipment.shape %></p>
-          <p><%= @equipment.daily_price %></p>
-          <p><%= @equipment.location %></p>
+          <p>Description: <%= @equipment.description %></p>
+          <p>Size: <%= @equipment.size %></p>
+          <p>Shape: <%= @equipment.shape %></p>
+          <p>Daily Price: <%= @equipment.daily_price %></p>
+          <p>Location: <%= @equipment.location %></p>
         </div>
       </div>
     </div>
       <div class="col-xs-12 col-md-5 ">
         <div class="form-card">
-        <%= render 'form', booking: @booking, equipment: @equipment %>
+          <% if current_user != @equipment.user %>
+            <%= render 'form', booking: @booking, equipment: @equipment %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-      <%= link_to "back", equipments_path%>
+<%= link_to "back", equipments_path%>
 
 
 

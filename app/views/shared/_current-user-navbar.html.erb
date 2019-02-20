@@ -1,4 +1,4 @@
-<div class="navbar-decathloc">
+<div class="navbar-decathloc sticky">
   <div class="logo">
     <%= link_to root_path do %>
       <%= image_tag "decathloc-logo.png", class: "logo-tag" %>
@@ -7,7 +7,7 @@
 
   <!-- displayed on laptops -->
   <div class="navbar-decathloc-actions d-none d-sm-flex">
-    <%= link_to 'Test - My bookings', equipments_path %>
+    <%= link_to 'My bookings', equipments_path %>
     <%= link_to 'Add Equipment', new_equipment_path %>
   </div>
 
@@ -18,7 +18,7 @@
     <div class="dropdown">
       <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to 'Test My bookings', equipments_path, class: "dropdown-item" %>
+        <%= link_to 'My bookings', equipments_path, class: "dropdown-item" %>
         <%= link_to 'Add Equipment', new_equipment_path, class: "dropdown-item" %>
       </div>
     </div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div id="equipments-list" class="cards-container">
+    <div class="row">
+      <% @equipments.each do |equipment| %>
+        <%= link_to equipment_path(equipment.id), class:"roller-card" do %>
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+            <div class="roller-image">
+              <%= cl_image_tag(equipment.photo, height: 250, width: 250,crop: :fill) %>
+            </div>
+            <div class="roller-text">
+              <h4><%= equipment.title %></h4>
+              <br>
+              <p>Shape: <%= equipment.shape %></p>
+              <p>Size: <%= equipment.size %></p>
+              <p>Location: <%= equipment.location %></p>
+              <p>Daily price: <%= equipment.daily_price %>€</p>
+            </div>
+          <!-- </div> -->
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+  </div>
+</div>

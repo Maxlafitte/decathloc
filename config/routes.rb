@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :equipments do
     resources :bookings, except: [:destroy]
   end
+  resources :dashboards, only: [:show]
   root to: 'equipments#index'
 end

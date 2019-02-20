@@ -12,12 +12,18 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <%= render 'shared/current-user-navbar' %>
+      <% if current_user.equipment_ids.empty? %>
+        <%= render 'shared/current-user-navbar' %>
+      <% else %>
+        <%= render 'shared/user-with-equipments-navbar' %>
+      <% end %>
     <% else %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="body">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

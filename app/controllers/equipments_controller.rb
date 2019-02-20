@@ -3,7 +3,6 @@ class EquipmentsController < ApplicationController
 
   def index
     @equipments = policy_scope(Equipment)
-    authorize @equipments
   end
 
   def show

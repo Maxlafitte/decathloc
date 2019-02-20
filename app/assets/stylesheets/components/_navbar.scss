@@ -6,6 +6,7 @@
   padding: 0px 0px;
   background: linear-gradient(0deg, rgba(222,223,224,1) 20%, rgba(202,203,206,1) 64%, rgba(210,210,210,1) 100%);
   position: sticky;
+
   a {
     color: white;
     text-decoration: none;
@@ -16,6 +17,7 @@
     color: $pink;
   }
 }
+
 .logo-tag {
     width: 280px;
     height: 70px;
@@ -46,6 +48,15 @@
 
 .navbar-decathloc .dropdown-toggle {
   cursor: pointer;
+}
+
+.sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
 

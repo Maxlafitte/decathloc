@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TODO</title>
+
+     <%= favicon_link_tag asset_path('favicon.png') %>
+    <title>DECATHLOC'</title>
+
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,12 +15,18 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <%= render 'shared/current-user-navbar' %>
+      <% if current_user.equipment_ids.empty? %>
+        <%= render 'shared/current-user-navbar' %>
+      <% else %>
+        <%= render 'shared/user-with-equipments-navbar' %>
+      <% end %>
     <% else %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="body">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

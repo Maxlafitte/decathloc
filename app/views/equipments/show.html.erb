@@ -1,20 +1,32 @@
-<div class="card-product">
-  <%= cl_image_tag @equipment.photo, crop: :fill %>
-  <div class="card-product-infos">
-    <h2><%= @equipment.title %></h2>
-    <p><%= @equipment.description %></p>
-    <p><%= @equipment.size %></p>
-    <p><%= @equipment.shape %></p>
-    <p><%= @equipment.daily_price %></p>
-    <p><%= @equipment.location %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <div class="big-card d-inline-flex">
+        <div class="equipment-img">
+          <%= cl_image_tag @equipment.photo, width: 280, height: 280, crop: :thumb, gravity: :face %>
+        </div>
+        <div class="equipment-desc">
+          <h2><%= @equipment.title %></h2>
+          <p><%= @equipment.description %></p>
+          <p><%= @equipment.size %></p>
+          <p><%= @equipment.shape %></p>
+          <p><%= @equipment.daily_price %></p>
+          <p><%= @equipment.location %></p>
+        </div>
+      </div>
+    </div>
+      <div class="col-xs-12 col-md-5 ">
+        <div class="form-card">
+        <%= render 'form', booking: @booking, equipment: @equipment %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<%= link_to "back", equipments_path%>
-<%= render 'form', booking: @booking, equipment: @equipment %>
 
 
-<% if policy(Equipment).create? %>
-  <%= link_to "New equipment", new_equipment_path %>
-<% end %>
+      <%= link_to "back", equipments_path%>
+
+
 
 

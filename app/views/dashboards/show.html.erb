@@ -1,5 +1,6 @@
 <div class="container extension">
   <div id="equipments-list" class="cards-container">
+    <h2 class="text-center">My equipment</h2>
     <div class="row">
       <% @equipments.each do |equipment| %>
         <%= link_to equipment_path(equipment.id), class:"roller-card" do %>
@@ -19,6 +20,7 @@
         <% end %>
       <% end %>
     </div>
+      <%= link_to 'Add equipment', new_equipment_path, class:'btn btn-gradient' %>
     <br>
   </div>
 </div>

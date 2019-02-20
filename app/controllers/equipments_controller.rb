@@ -1,8 +1,8 @@
 class EquipmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_equipments, only: [:index, :new, :create]
 
   def index
-    @equipments = policy_scope(Equipment)
   end
 
   def show
@@ -21,13 +21,17 @@ class EquipmentsController < ApplicationController
     @equipment.user = current_user
     authorize @equipment
     if @equipment.save
-      redirect_to equipments_path
+      redirect_to dashboard_path(@equipments)
     else
       render :new
     end
   end
 
   private
+
+  def set_equipments
+    @equipments = policy_scope(Equipment)
+  end
 
   def equipment_params
     params.require(:equipment).permit(:title, :description, :size, :shape, :daily_price, :photo, :location)

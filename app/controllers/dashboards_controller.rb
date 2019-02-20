@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
   after_action :verify_policy_scoped
 
   def show
-    @equipments = policy_scope(Equipment)
+    authorize :dashboard, :show?
+    @equipments = policy_scope(Equipment).where(user: current_user)
   end
 end

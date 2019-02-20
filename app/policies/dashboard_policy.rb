@@ -1,8 +1,12 @@
 class DashboardPolicy < ApplicationPolicy
 
+  def show?
+    return true
+  end
+
   class Scope < Scope
     def resolve
-      scope.select {|record| record.user == user}
+      scope.all
     end
   end
 end

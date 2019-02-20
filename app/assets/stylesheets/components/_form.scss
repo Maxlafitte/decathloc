@@ -1,0 +1,30 @@
+.form-center {
+  justify-content: center;
+  padding: 70px 0px;
+}
+#new_equipment {
+  background-color: rgb(245, 245, 245);
+  opacity: 0.8;
+  padding: 20px;
+  box-shadow:  0px 1px 10px 0px rgba(209,209,209,1);
+  h2 {
+    font-weight : bold;
+    font-family: "Roboto";
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+}
+.btn-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+.btn-gradient {
+  width : 200px;
+  padding: 16px 24px;
+}
+@media screen and (max-width: 1232px) {
+    .select2 {
+        width: 100% !important;
+    }
+}

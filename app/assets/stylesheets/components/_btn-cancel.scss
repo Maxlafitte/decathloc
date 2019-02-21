@@ -1,0 +1,19 @@
+.btn-cancel {
+  color: $body;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #cacbce;
+  opacity: 0.8;
+  transition: background 0.3s ease;
+  border: 1px ;
+  margin-top: 40px;
+  width: 100px;
+}
+.btn-cancel:hover {
+  background-color: $call-action;
+  opacity: 1;
+  transition: background 0.3s ease;
+  color: white;
+}
+

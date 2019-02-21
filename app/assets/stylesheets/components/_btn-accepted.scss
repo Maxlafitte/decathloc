@@ -1,0 +1,18 @@
+.btn-accepted {
+  color: $body;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: $green-flashy;
+  opacity: 0.8;
+  transition: background 0.3s ease;
+  border: 1px ;
+  margin-top: 10px;
+  width: 100px;
+}
+.btn-accepted:hover {
+  background-color: $green-flashy;
+  opacity: 1;
+  transition: background 0.3s ease;
+  color: white;
+}

@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
   def create
     @equipment = Equipment.find(params[:equipment_id])
     authorize @equipment

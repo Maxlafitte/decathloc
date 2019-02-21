@@ -5,10 +5,12 @@ class BookingsController < ApplicationController
   def create
     @equipment = Equipment.find(params[:equipment_id])
     authorize @equipment
+
     @booking = Booking.new(review_params)
     authorize @booking
     @booking.equipment = @equipment
     @booking.status = "pending"
+    @booking.price = @equipment.daily_price * @booking.end_date.to_date - @booking.start_date.to_date
     @booking.user = current_user
     if @booking.save
       redirect_to dashboard_bookings_path

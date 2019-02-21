@@ -2,19 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
+  background: $body;
   padding: 0px 0px;
-  background: linear-gradient(0deg, rgba(222,223,224,1) 20%, rgba(202,203,206,1) 64%, rgba(210,210,210,1) 100%);
+  background-color: $call-action;
   position: sticky;
-
   a {
-    color: white;
+    color: $body;
     text-decoration: none;
     margin: 0px 10px;
     font-family: "roboto";
   }
   a:hover {
-    color: $pink;
+    color: $green-flashy;
   }
 }
 
@@ -35,7 +34,7 @@
 
 .navbar-decathloc .navbar-decathloc-actions .navbar-decathloc-link {
   margin-left: 24px;
-  color: #999999;
+  color: $body;
 }
 .navbar-decathloc .navbar-decathloc-actions .navbar-decathloc-link:hover {
   color: #151515;

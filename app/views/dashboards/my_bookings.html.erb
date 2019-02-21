@@ -18,11 +18,13 @@
         <p>End date: <%= booking.end_date %></p>
         <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
         <p>Status: <%= booking.status %></p>
-        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-          <%= f.button :submit, value: 'Accept', class:"btn" %>
-        <% end %>
-        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-          <%= f.button :submit, value: 'Decline', class:"btn" %>
+        <% if booking.status == "pending" %>
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Accept', class:"btn" %>
+          <% end %>
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Decline', class:"btn" %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

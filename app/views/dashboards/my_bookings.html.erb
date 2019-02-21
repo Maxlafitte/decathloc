@@ -1,27 +1,32 @@
-<br>
-<br>
-<h2 class="text-center">My Bookings</h2>
-<div class="tabs">
-  <li class="active"><%= link_to 'Received', dashboard_bookings_path %></li>
-    <div class="received">
+<div class="container body">
+  <br>
+  <h2 class="text-center">My Bookings</h2>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Received</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sent</a>
+    </li>
+
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <% @bookings_received.each do |booking| %>
-          <p>Begin date: <%= booking.start_date %></p>
-          <p>End date: <%= booking.end_date %></p>
-          <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-          <p>Status: <%= booking.status %></p>
-
-          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-            <%= f.button :submit, value: 'Accept', class:"btn" %>
-          <% end %>
-
-
-          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-            <%= f.button :submit, value: 'Decline', class:"btn" %>
-          <% end %>
+        <p>Begin date: <%= booking.start_date %></p>
+        <p>End date: <%= booking.end_date %></p>
+        <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+        <p>Status: <%= booking.status %></p>
+        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+          <%= f.button :submit, value: 'Accept', class:"btn" %>
+        <% end %>
+        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+          <%= f.button :submit, value: 'Decline', class:"btn" %>
+        <% end %>
       <% end %>
     </div>
-  <li><%= link_to 'Sent', dashboard_bookings_path %></li>
-    <div class="sent">
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...
       <% @bookings_sent.each do |booking| %>
         <p>Begin date: <%= booking.start_date %></p>
         <p>End date: <%= booking.end_date %></p>
@@ -29,6 +34,12 @@
         <p>Status: <%= booking.status %></p>
       <% end %>
     </div>
+  </div>
+
 </div>
+
+
+
+
 
 

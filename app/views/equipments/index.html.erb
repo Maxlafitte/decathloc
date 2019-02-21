@@ -16,26 +16,29 @@
 </div>
 
 <div class="container">
-  <div id="equipments-list" class="cards-container">
-    <div class="row">
+  <div id="equipments-list">
+    <div class="row cards">
+      <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
       <% @equipments.each do |equipment| %>
         <%= link_to equipment_path(equipment.id), class:"roller-card" do %>
-          <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
             <div class="roller-image">
               <%= cl_image_tag(equipment.photo, height: 250, width: 250,crop: :fill) %>
             </div>
             <div class="roller-text">
-              <h4><%= equipment.title %></h4>
-              <br>
-              <p>Shape: <%= equipment.shape %></p>
-              <p>Size: <%= equipment.size %></p>
-              <p>Location: <%= equipment.location %></p>
-              <p>Daily price: <%= equipment.daily_price %>€</p>
+              <div class="title-size">
+                <h4><%= equipment.title %></h4>
+                <p>Size: <%= equipment.size %></p>
+              </div>
+              <div class="location-price">
+                <p><%= equipment.location %></p>
+                <p><%= equipment.daily_price %>€/day</p>
+              </div>
             </div>
-          <!-- </div> -->
         <% end %>
       <% end %>
+         <!--  </div> -->
     </div>
     <br>
   </div>
 </div>
+

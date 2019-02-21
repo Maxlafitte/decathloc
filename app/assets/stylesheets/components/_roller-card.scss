@@ -1,28 +1,53 @@
 .roller-card {
+  width: 300px;
+  background-color: white;
+  height: 380px;
+  background-size: cover;
   color: $gray;
   border-radius: 5px;
-  margin: 10px;
-  width: 45%;
-  position: relative;
-  background-color: white;
+  margin: 30px;
   box-shadow:  0px 1px 10px 0px rgba(209,209,209,1);
+  padding: 20px;
   &:hover {
     text-decoration: none;
     color: #717273;
     border: 1px solid $green-flashy;
   }
 }
+.cards {
+  justify-content: space-around;
+}
 
 .roller-card img {
   border-radius: 5px;
-  margin: 10px;
 }
-
+.roller-image {
+  position: relative;
+  height: 285px;
+  display: flex;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .roller-text {
-  position: absolute;
-  top: 10px;
-  right: -5px;
-  width: 45%;
-  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // margin-top: 90px;
+  p {
+    font-size: 15px;
+    text-decoration: none;
+  }
+  h4 {
+    font-size: 20px;
+  }
 }
+.title-size {
+  margin-left: 10px;
+}
+.location-price {
+  margin-right: 10px;
+}
+.my-equipments-list-text {
 
+}

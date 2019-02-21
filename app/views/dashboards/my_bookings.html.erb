@@ -1,0 +1,21 @@
+<h2 class="text-center">My Bookings</h2>
+  <br>
+  <br>
+  <h3>Received</h3>
+  <%#= link_to 'Received', dashboard_bookings_path %>
+  <% @bookings_received.each do |booking| %>
+      <p>Begin date: <%= booking.start_date %></p>
+      <p>End date: <%= booking.end_date %></p>
+      <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+      <p>Status: <%= booking.status %></p>
+  <% end %>
+
+  <h3>Sent</h3>
+  <%#= link_to 'Sent', dashboard_bookings_path %>
+  <% @bookings_sent.each do |booking| %>
+    <p>Begin date: <%= booking.start_date %></p>
+    <p>End date: <%= booking.end_date %></p>
+    <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+    <p>Status: <%= booking.status %></p>
+  <% end %>
+

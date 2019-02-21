@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :equipments do
     resources :bookings, except: [:destroy]
   end
-  resources :dashboards, only: [:show]
+  get 'dashboard/equipments', to: 'dashboards#my_equipments', as: :dashboard_equipments
+  get 'dashboard/bookings', to: 'dashboards#my_bookings', as: :dashboard_bookings
   root to: 'equipments#index'
 end

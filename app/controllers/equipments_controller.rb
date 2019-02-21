@@ -21,7 +21,7 @@ class EquipmentsController < ApplicationController
     @equipment.user = current_user
     authorize @equipment
     if @equipment.save
-      redirect_to dashboard_path(@equipments)
+      redirect_to dashboard_equipments_path
     else
       render :new
     end

@@ -1,0 +1,32 @@
+.card-category {
+  background-size: cover;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $gray;
+  background-color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow:  0px 1px 10px 0px rgba(209,209,209,1);
+  margin-bottom: 25px;
+  padding: 0px 40px;
+  .tabs-img {
+    height: 150px;
+    width: 150px;
+  }
+  &:hover {
+    border: 1px solid $green-hover;
+  }
+}
+.booking-status {
+  width: 150px;
+  .pending {
+    color: #cacbce;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.tabs-img {
+  padding-top: 15px;
+}

@@ -9,8 +9,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(review_params)
     authorize @booking
     @booking.equipment = @equipment
-    @booking.status = "pending"
     @booking.price = @equipment.daily_price * @booking.end_date.to_date - @booking.start_date.to_date
+    @booking.status = "Pending"
     @booking.user = current_user
     if @booking.save
       redirect_to dashboard_bookings_path
@@ -23,14 +23,21 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if params[:commit] == "Accept"
-      if @booking.update(status: "accepted")
+      if @booking.update(status: "Accepted")
         redirect_to dashboard_bookings_path
       else
         render :my_bookings
       end
     end
     if params[:commit] == "Decline"
-      if @booking.update(status: "declined")
+      if @booking.update(status: "Declined")
+        redirect_to dashboard_bookings_path
+      else
+        render :my_bookings
+      end
+    end
+    if params[:commit] == "Cancel"
+      if @booking.update(status: "Cancelled")
         redirect_to dashboard_bookings_path
       else
         render :my_bookings

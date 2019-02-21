@@ -26,20 +26,19 @@
         <% end %>
       <% end %>
     </div>
+
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <% @bookings_sent.each do |booking| %>
-        <p>Begin date: <%= booking.start_date %></p>
-        <p>End date: <%= booking.end_date %></p>
-        <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-        <p>Status: <%= booking.status %></p>
+    <% @bookings_sent.each do |booking| %>
+      <p>Begin date: <%= booking.start_date %></p>
+      <p>End date: <%= booking.end_date %></p>
+      <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+      <p>Status: <%= booking.status %></p>
+      <% if Date.today < booking.start_date.to_date - 2.day && booking.status != "cancelled" %>
+        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+          <%= f.button :submit, value: 'Cancel', class:"btn" %>
+        <% end %>
       <% end %>
+    <% end %>
     </div>
   </div>
-
 </div>
-
-
-
-
-
-

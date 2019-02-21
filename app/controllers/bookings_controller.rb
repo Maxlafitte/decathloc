@@ -17,6 +17,25 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if params[:commit] == "Accept"
+      if @booking.update(status: "accepted")
+        redirect_to dashboard_bookings_path
+      else
+        render :my_bookings
+      end
+    end
+    if params[:commit] == "Decline"
+      if @booking.update(status: "declined")
+        redirect_to dashboard_bookings_path
+      else
+        render :my_bookings
+      end
+    end
+  end
+
   private
 
   def review_params

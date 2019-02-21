@@ -1,15 +1,7 @@
 <div class="container body">
-
-  <div class="form-inputs">
-    <%= simple_form_for [ equipment, booking ] do |f| %>
-      <!-- <#%= f.input :content, label: false, as: :text, autofocus:true :input_html => {:style => 'width: 100%', :rows => 5  class: 'response-project'}%> -->
-      <%= f.input :start_date, as: :date, autofocus: true %>
-      <%= f.input :end_date, as: :date, autofocus:true  %>
-  </div>
-  <div class="form-actions btn-form">
-   <%= f.button :submit, "Book",  class: 'btn-gradient' %>
-  </div>
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Book",  class: 'btn-gradient' %>
     <% end %>
 </div>
-
-

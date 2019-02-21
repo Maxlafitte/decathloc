@@ -1,26 +1,34 @@
+<br>
+<br>
 <h2 class="text-center">My Bookings</h2>
-  <br>
-  <br>
-  <h3>Received</h3>
-  <%#= link_to 'Received', dashboard_bookings_path %>
-  <% @bookings_received.each do |booking| %>
-      <p>Begin date: <%= booking.start_date %></p>
-      <p>End date: <%= booking.end_date %></p>
-      <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-      <p>Status: <%= booking.status %></p>
-      <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-        <%= f.button :submit, value: 'Accept', class:"btn" %>
-      <% end %>
-      <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-        <%= f.button :submit, value: 'Decline', class:"btn" %>
-      <% end %>
-  <% end %>
+<div class="tabs">
+  <li class="active"><%= link_to 'Received', dashboard_bookings_path %></li>
+    <div class="received">
+      <% @bookings_received.each do |booking| %>
+          <p>Begin date: <%= booking.start_date %></p>
+          <p>End date: <%= booking.end_date %></p>
+          <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+          <p>Status: <%= booking.status %></p>
 
-  <h3>Sent</h3>
-  <%#= link_to 'Sent', dashboard_bookings_path %>
-  <% @bookings_sent.each do |booking| %>
-    <p>Begin date: <%= booking.start_date %></p>
-    <p>End date: <%= booking.end_date %></p>
-    <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-    <p>Status: <%= booking.status %></p>
-  <% end %>
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Accept', class:"btn" %>
+          <% end %>
+
+
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Decline', class:"btn" %>
+          <% end %>
+      <% end %>
+    </div>
+  <li><%= link_to 'Sent', dashboard_bookings_path %></li>
+    <div class="sent">
+      <% @bookings_sent.each do |booking| %>
+        <p>Begin date: <%= booking.start_date %></p>
+        <p>End date: <%= booking.end_date %></p>
+        <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
+        <p>Status: <%= booking.status %></p>
+      <% end %>
+    </div>
+</div>
+
+

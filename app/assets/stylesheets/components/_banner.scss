@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   // padding: 150px 0;
-  color: white;
+  color: $body;
   height: 70vh;
   text-align: center;
   display: flex;
@@ -13,7 +13,7 @@
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: $body;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 52px;
   font-weight: bold;
@@ -21,7 +21,7 @@
 
 .banner p {
   font-size: 25px;
-  color: white;
+  color: $body;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }

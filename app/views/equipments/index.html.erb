@@ -6,7 +6,10 @@
     <div class="search-bar">
       <input type="search" class="site-search" name="q" placeholder="Size">
       <input type="search" class="site-search" name="q" placeholder="Location">
-      <input type="search" class="site-search" name="q" placeholder="Dates">
+      <%= simple_form_for :search, method: "get" do |f| %>
+        <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <% end %>
     </div>
     <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>
   </div>

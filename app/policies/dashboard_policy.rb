@@ -1,6 +1,6 @@
 class DashboardPolicy < ApplicationPolicy
 
-  def show?
+  def my_equipments?
     return true
   end
 

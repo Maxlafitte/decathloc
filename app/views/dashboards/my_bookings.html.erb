@@ -14,31 +14,43 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <% @bookings_received.each do |booking| %>
-        <p>Begin date: <%= booking.start_date %></p>
-        <p>End date: <%= booking.end_date %></p>
-        <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-        <p>Status: <%= booking.status %></p>
-        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-          <%= f.button :submit, value: 'Accept', class:"btn" %>
-        <% end %>
-        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-          <%= f.button :submit, value: 'Decline', class:"btn" %>
-        <% end %>
+      <div class="card-category">
+        <p><%= cl_image_tag booking.equipment.photo, class:"tabs-img" %></p>
+        <div class="date">
+          <p>From: <%= booking.start_date %></p>
+          <p>To: <%= booking.end_date %></p>
+        </div>
+        <div class="booking-status">
+          <p class="pending"><%= booking.status.upcase %></p>
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Accept', class:"btn btn-accepted" %>
+          <% end %>
+          <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+            <%= f.button :submit, value: 'Decline', class:"btn btn-declined" %>
+          <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <% @bookings_sent.each do |booking| %>
-      <p>Begin date: <%= booking.start_date %></p>
-      <p>End date: <%= booking.end_date %></p>
-      <p><%= cl_image_tag booking.equipment.photo, class:"avatar" %></p>
-      <p>Status: <%= booking.status %></p>
-      <% if Date.today < booking.start_date.to_date - 2.day %>
-        <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-          <%= f.button :submit, value: 'Cancel', class:"btn" %>
-        <% end %>
+      <% @bookings_sent.each do |booking| %>
+        <div class="card-category">
+          <p><%= cl_image_tag booking.equipment.photo, class:"tabs-img" %></p>
+          <div class="date">
+            <p>From: <%= booking.start_date %></p>
+            <p>To: <%= booking.end_date %></p>
+          </div>
+          <div class="booking-status">
+            <p class="pending"><%= booking.status.upcase %></p>
+            <% if Date.today < booking.start_date.to_date - 2.day && booking.status != "cancelled" %>
+              <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
+                <%= f.button :submit, value: 'Cancel', class:"btn btn-cancel" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-    <% end %>
     </div>
   </div>
 </div>

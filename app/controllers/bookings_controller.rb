@@ -43,6 +43,7 @@ class BookingsController < ApplicationController
     end
   end
 
+
   private
 
   def review_params

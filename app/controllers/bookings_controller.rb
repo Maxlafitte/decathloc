@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(review_params)
     authorize @booking
     @booking.equipment = @equipment
-    @booking.price = @equipment.daily_price * (@booking.end_date.to_date - @booking.start_date.to_date).to_i
+    @booking.price = @equipment.daily_price.to_i * ((@booking.end_date.to_date - @booking.start_date.to_date).to_i)
     @booking.status = "Pending"
     @booking.user = current_user
     if @booking.save

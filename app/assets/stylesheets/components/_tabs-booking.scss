@@ -1,7 +1,20 @@
+.nav-tabs .nav-link.active {
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 4px;
+  box-shadow: 0px -1px 7px -1px rgba(158,153,158,0.61);
+}
 .nav-link {
   text-decoration: none;
   color: $gray;
-  &:hover {
+}
+.nav-link:hover {
+  color: black;
+  border-color: none;
+  a {
     color: black;
   }
+}
+.nav-tabs .nav-link:hover {
+    border: 1px transparent;
 }

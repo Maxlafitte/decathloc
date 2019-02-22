@@ -12,8 +12,9 @@
     margin: 0px 10px;
     font-family: "roboto";
   }
-  a:hover {
-    color: $green-flashy;
+  .active:hover {
+    border-bottom: solid 3px #17ED74;
+    padding: 4px;
   }
 }
 

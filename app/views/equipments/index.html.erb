@@ -1,22 +1,19 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'roller-banner.png' %>');">
   <div class="container body">
     <h1><strong>Welcome to DecathLoc'</strong></h1>
-    <p>The platform to rent Roller, for your trainings or competition</p>
-
+    <p>The platform to rent Blades, for your trainings or competitions</p>
     <div class="search-bar">
-      <%= simple_form_for :search, method: "get", html: {class: "form-inline"} do |f| %>
-        <%= f.input :location, label: false, placeholder: 'Enter an address', input_html: {class: "search-input"} %>
-        <%= f.input :size, collection: Equipment::SIZES, label: false, input_html: { class: 'select2size search-input' } %>
-      <% end %>
+    <%= form_tag equipments_search_path, html: {class: "form-inline"} do %>
+      <%= text_field_tag :location, "", class:"search-input", placeholder:"Enter your city" %>
+      <%= select_tag "size", options_for_select(Equipment::SIZES, "Size"), class: 'select2 search-input', placeholder:"Size" %>
     </div>
-    <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>
+      <%= submit_tag("LOC", {class:"btn btn-gradient"}) %>
+    <% end %>
   </div>
 </div>
-
 <div class="container">
   <div id="equipments-list">
     <div class="row cards">
-      <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
       <% @equipments.each do |equipment| %>
         <%= link_to equipment_path(equipment.id), class:"roller-card" do %>
             <div class="roller-image">
@@ -34,7 +31,6 @@
             </div>
         <% end %>
       <% end %>
-         <!--  </div> -->
     </div>
     <br>
   </div>

@@ -25,7 +25,7 @@
         </div>
         <div class="booking-status">
           <p class="pending"><%= booking.status.upcase %></p>
-          <% if booking.status.upcase == "Pending" %>
+          <% if booking.status.upcase == "PENDING" %>
             <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
               <%= f.button :submit, value: 'Accept', class:"btn btn-accepted" %>
             <% end %>
@@ -53,6 +53,7 @@
             <div data-booking-id="<%= booking.id%>">
               <%= render 'form', booking: booking %>
             </div>
+
           </div>
         </div>
       <% end %>

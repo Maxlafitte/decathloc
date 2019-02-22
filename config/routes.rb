@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end
   get 'dashboard/equipments', to: 'dashboards#my_equipments', as: :dashboard_equipments
   get 'dashboard/bookings', to: 'dashboards#my_bookings', as: :dashboard_bookings
+
+  post '/search', to: 'equipments#search', as: :equipments_search
+
   root to: 'equipments#index'
 end

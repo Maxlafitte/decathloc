@@ -1,7 +1,7 @@
 .roller-card {
   width: 300px;
   background-color: white;
-  height: 380px;
+  height: 400px;
   background-size: cover;
   color: $gray;
   border-radius: 5px;
@@ -27,7 +27,8 @@
   display: flex;
   background-size: cover;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .roller-text {
   display: flex;

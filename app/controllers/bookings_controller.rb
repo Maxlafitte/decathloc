@@ -28,15 +28,13 @@ class BookingsController < ApplicationController
       else
         render :my_bookings
       end
-    end
-    if params[:commit] == "Decline"
+    elsif params[:commit] == "Decline"
       if @booking.update(status: "Declined")
         redirect_to dashboard_bookings_path
       else
         render :my_bookings
       end
-    end
-    if params[:commit] == "Cancel"
+    elsif params[:commit] == "Cancel"
       if @booking.update(status: "Cancelled")
         redirect_to dashboard_bookings_path
       else

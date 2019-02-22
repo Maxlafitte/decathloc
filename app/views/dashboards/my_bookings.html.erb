@@ -51,11 +51,9 @@
         </div>
           <div class="booking-status">
             <p class="pending"><%= booking.status.upcase %></p>
-            <% if booking.status.upcase == "Pending" %>
-              <% if Date.today < booking.start_date.to_date - 2.day && booking.status != "cancelled" %>
-                <%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-                  <%= f.button :submit, value: 'Cancel', class:"btn btn-cancel" %>
-                <% end %>
+            <% if booking.status.upcase == "PENDING" %>
+              <% if Date.today < booking.start_date.to_date - 2.day%>
+                <%= render 'form', booking: booking %>
               <% end %>
             <% end %>
           </div>

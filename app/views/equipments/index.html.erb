@@ -6,7 +6,7 @@
     <div class="search-bar">
       <%= simple_form_for :search, method: "get", html: {class: "form-inline"} do |f| %>
         <%= f.input :location, label: false, placeholder: 'Enter an address', input_html: {class: "search-input"} %>
-        <%= f.input :size, collection: Equipment::SIZES, placeholder: 38, label: false, input_html: { class: 'select2 search-input' } %>
+        <%= f.input :size, collection: Equipment::SIZES, label: false, input_html: { class: 'select2size search-input' } %>
       <% end %>
     </div>
     <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>

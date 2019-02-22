@@ -40,7 +40,7 @@
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <% @bookings_sent.each do |booking| %>
-        <div class="card-category">
+        <div class="card-category ">
           <p><%= cl_image_tag booking.equipment.photo, class:"tabs-img" %></p>
           <div class="date">
             <p>From: <%= booking.start_date %></p>
@@ -50,14 +50,10 @@
           <p>Price: <%= booking.price %>€</p>
         </div>
           <div class="booking-status">
-            <p class="pending"><%= booking.status.upcase %></p>
-            <% if booking.status.upcase == "PENDING" %>
+            <div data-booking-id="<%= booking.id%>">
+              <%= render 'form', booking: booking %>
+            </div>
 
-              <% if Date.today < booking.start_date.to_date - 2.day%>
-                <%= render 'form', booking: booking %>
-
-              <% end %>
-            <% end %>
           </div>
         </div>
       <% end %>

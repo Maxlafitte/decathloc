@@ -1,0 +1,7 @@
+function refreshForm(form) {
+  const booking = document.querySelector("[data-booking-id='<%= @booking.id %>']");
+  booking.innerHTML = form;
+  console.log(booking);
+}
+
+refreshForm('<%= j render "dashboards/form", booking: @booking %>');

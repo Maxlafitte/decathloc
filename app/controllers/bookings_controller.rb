@@ -36,7 +36,10 @@ class BookingsController < ApplicationController
       end
     elsif params[:commit] == "Cancel"
       if @booking.update(status: "Cancelled")
-        redirect_to dashboard_bookings_path
+        respond_to do |format|
+          format.html { redirect_to dashboard_bookings_path }
+          format.js
+        end
       else
         render :my_bookings
       end

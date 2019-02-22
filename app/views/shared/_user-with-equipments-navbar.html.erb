@@ -7,9 +7,9 @@
 
   <!-- displayed on laptops -->
   <div class="navbar-decathloc-actions d-none d-sm-flex">
-    <%= link_to 'My bookings', dashboard_bookings_path %>
-    <%= link_to 'My Equipments', dashboard_equipments_path %>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    <%= link_to 'My bookings', dashboard_bookings_path, class: "active" %>
+    <%= link_to 'My Equipments', dashboard_equipments_path, class: "active" %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "active" %>
     <%= cl_image_tag current_user.photo, class: "avatar" %>
   </div>
 

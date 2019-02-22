@@ -28,3 +28,23 @@
         width: 100% !important;
     }
 }
+#new_booking {
+  background-color: $background-card;
+  opacity: 0.8;
+  padding: 20px;
+  box-shadow:  0px 1px 10px 0px rgba(209,209,209,1);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 310px;
+  align-items: center;
+  position: absolute;
+  top: -45px;
+  left: 642px;
+  h2 {
+    font-weight : bold;
+    font-family: "Roboto";
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+}

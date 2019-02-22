@@ -5,9 +5,11 @@ class BookingsController < ApplicationController
   def create
     @equipment = Equipment.find(params[:equipment_id])
     authorize @equipment
+
     @booking = Booking.new(review_params)
     authorize @booking
     @booking.equipment = @equipment
+    @booking.price = @equipment.daily_price * (@booking.end_date.to_date - @booking.start_date.to_date).to_i
     @booking.status = "Pending"
     @booking.user = current_user
     if @booking.save

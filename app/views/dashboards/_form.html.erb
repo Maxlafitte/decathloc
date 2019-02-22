@@ -1,3 +1,6 @@
-<%= simple_form_for [booking.equipment, booking] , method: :patch do |f| %>
-  <%= f.button :submit, value: 'Cancel', class:"btn btn-cancel" %>
-<% end %>
+<%= booking.status.upcase %>
+  <% if Date.today < booking.start_date.to_date - 2.day && booking.status.upcase != 'CANCELLED' %>
+    <%= simple_form_for [booking.equipment, booking] , method: :patch, remote: true do |f| %>
+    <%= f.button :submit, value: 'Cancel', class:"btn btn-cancel" %>
+    <% end %>
+  <% end %>

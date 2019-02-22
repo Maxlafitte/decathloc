@@ -7,9 +7,9 @@
 
   <!-- displayed on laptops -->
   <div class="navbar-decathloc-actions d-none d-sm-flex">
-    <%= link_to 'My bookings', dashboard_bookings_path, class: "active" %>
-    <%= link_to 'My Equipments', dashboard_equipments_path, class: "active" %>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "active" %>
+    <%= link_to 'MY BOOKINGS', dashboard_bookings_path, class: "active" %>
+    <%= link_to 'MY EQUIPMENT', dashboard_equipments_path, class: "active" %>
+    <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: "active" %>
     <%= cl_image_tag current_user.photo, class: "avatar" %>
   </div>
 
@@ -20,8 +20,8 @@
     <div class="dropdown">
       <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to 'My bookings', dashboard_bookings_path, class: "dropdown-item" %>
-        <%= link_to 'My Equipments', dashboard_equipments_path, class: "dropdown-item" %>
+        <%= link_to 'MY BOOKINGS', dashboard_bookings_path, class: "dropdown-item" %>
+        <%= link_to 'MY EQUIPMENT', dashboard_equipments_path, class: "dropdown-item" %>
 
       </div>
     </div>

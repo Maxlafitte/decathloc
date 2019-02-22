@@ -28,8 +28,9 @@ class EquipmentsController < ApplicationController
   end
 
   def search
-    @equipments = Equipment.where("location ILIKE ?", "%params[:location]%").where("size ILIKE ?", "params[:size]")
+    @equipments = Equipment.where("location ILIKE ?", params[:location]).where("size ILIKE ?", params[:size])
     authorize @equipments
+    render :index
   end
 
   private
@@ -41,5 +42,4 @@ class EquipmentsController < ApplicationController
   def equipment_params
     params.require(:equipment).permit(:title, :description, :size, :shape, :daily_price, :photo, :location)
   end
-
 end

@@ -6,9 +6,7 @@
     <div class="search-bar">
       <%= simple_form_for :search, method: "get", html: {class: "form-inline"} do |f| %>
         <%= f.input :location, label: false, placeholder: 'Enter an address', input_html: {class: "search-input"} %>
-        <%= f.input :start_date, as: :string, label: false, placeholder: 'Start date', required: false, input_html: {class: "datepicker search-input"} %>
-        <%= f.input :end_date, as: :string, label: false, placeholder: 'End date', required: false, input_html: {class: "datepicker search-input"} %>
-        <%= f.input :size, collection: Equipment::SIZES, placeholder: 'Size', label: false, input_html: { class: 'select2 search-input' } %>
+        <%= f.input :size, collection: Equipment::SIZES, label: false, input_html: { class: 'select2size search-input' } %>
       <% end %>
     </div>
     <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>

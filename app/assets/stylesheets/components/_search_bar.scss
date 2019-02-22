@@ -10,3 +10,15 @@
 .select2-selection {
   height:40px !important;
 }
+
+#search_location {
+  width: 500px;
+}
+
+#search_size {
+  align-items: center;
+}
+
+#select2-search_size-container, .select2-selection__arrow {
+  padding-top: 4px;
+}

@@ -2,38 +2,19 @@
   <div class="container body">
     <h1><strong>Welcome to DecathLoc'</strong></h1>
     <p>The platform to rent Roller, for your trainings or competition</p>
-
     <div class="search-bar">
-      <%= simple_form_for :search, method: "get", html: {class: "form-inline"} do |f| %>
-        <%= f.input :location, label: false, placeholder: 'Enter an address', input_html: {class: "search-input"} %>
-        <%#= f.input :start_date, as: :string, label: false, placeholder: 'Start date', required: false, input_html: {class: "datepicker search-input"} %>
-        <%#= f.input :end_date, as: :string, label: false, placeholder: 'End date', required: false, input_html: {class: "datepicker search-input"} %>
-        <%= f.input :size, collection: Equipment::SIZES, placeholder: 'Size', label: false, input_html: { class: 'select2 search-input' } %>
-      <% end %>
+    <%= form_tag equipments_search_path, html: {class: "form-inline"} do %>
+      <%= text_field_tag :location, "", class:"search-input", placeholder:"Enter your address" %>
+      <%= select_tag "size", options_for_select(Equipment::SIZES, "Size"), class: 'select2 search-input' %>
     </div>
-    <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>
+      <%= submit_tag("LOC", {class:"btn btn-gradient"}) %>
+    <% end %>
   </div>
-
-
-
-<div class="search-bar">
-<%= form_tag equipments_search_path, html: {class: "form-inline"} do %>
-  <%= text_field_tag(:location) %>
-  <%= select_tag "size", options_for_select(Equipment::SIZES, "Size") %>
-</div>
-  <%= submit_tag("LOC", {class:"btn btn-gradient"}) %>
-<% end %>
-
-
-
-
-
 </div>
 
 <div class="container">
   <div id="equipments-list">
     <div class="row cards">
-      <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
       <% @equipments.each do |equipment| %>
         <%= link_to equipment_path(equipment.id), class:"roller-card" do %>
             <div class="roller-image">
@@ -51,7 +32,6 @@
             </div>
         <% end %>
       <% end %>
-         <!--  </div> -->
     </div>
     <br>
   </div>

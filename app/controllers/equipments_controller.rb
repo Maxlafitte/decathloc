@@ -27,6 +27,11 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def search
+    @equipments = Equipment.where("location ILIKE ?", "%params[:location]%").where("size ILIKE ?", "params[:size]")
+    authorize @equipments
+  end
+
   private
 
   def set_equipments
@@ -36,4 +41,5 @@ class EquipmentsController < ApplicationController
   def equipment_params
     params.require(:equipment).permit(:title, :description, :size, :shape, :daily_price, :photo, :location)
   end
+
 end

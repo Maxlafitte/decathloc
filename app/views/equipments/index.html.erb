@@ -13,6 +13,21 @@
     </div>
     <%= link_to("LOC'", equipments_path(:anchor => "equipments-list"), class:"btn btn-gradient") %>
   </div>
+
+
+
+<div class="search-bar">
+<%= form_tag equipments_search_path, html: {class: "form-inline"} do %>
+  <%= text_field_tag(:location) %>
+  <%= select_tag "size", options_for_select(Equipment::SIZES, "Size") %>
+</div>
+  <%= submit_tag("LOC", {class:"btn btn-gradient"}) %>
+<% end %>
+
+
+
+
+
 </div>
 
 <div class="container">
